@@ -1,0 +1,33 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing these this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: FKtPp Journal
+email: mpupilnet@aol.com
+description: > # this means to ignore newlines until "baseurl:"
+  In the early 2017 FKtPp start to realize that too many knowledge learned
+  from books techsites, blogs, working were dispearing from his not so powerful
+  brain. So he (actually I who is typing the word) decide to write something
+  down for a record and for some not being able to tell reason.
+
+  Okay, get start.
+  
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://fktpp.github.io" # the base hostname & protocol for your site
+twitter_username: FKtPp
+github_username:  fktpp
+
+# Build settings
+markdown: kramdown
+theme: minima
