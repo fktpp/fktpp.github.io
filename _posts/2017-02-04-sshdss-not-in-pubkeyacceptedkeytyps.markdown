@@ -4,7 +4,7 @@ title:  "ssh-dss key not in PubkeyAcceptedKeyTypes"
 date:   Sat Feb  4 20:47:12 DST 2017
 categories: ssh dss
 ---
-# ssh-dss key not in PubkeyAcceptedKeyTypes
+# DSS 不能用啦！ ssh-dss key not in PubkeyAcceptedKeyTypes
 
 忙里偷闲鼓捣自建基于[Jekyll][Jekyll]的blog，发现无论如何
 都不能在心爱的linux里面通过ssh clone新创建的 git repository。
@@ -108,7 +108,7 @@ and the repository exists.
 
 Linux 用户是需要多么顽qiang的生命力啊
 
-[Jekyll]: (http://jekyllrb.com)
-[stackexchangeSshSkipPubKey]: (http://unix.stackexchange.com/questions/247612/ssh-keeps-skipping-my-pubkey-and-asking-for-a-passworde)
-[perezdecastroSshLockOut]: (https://perezdecastro.org/2015/old-ssh-keys.html)
-[ChrisJeanUbuntuFix]: (https://chrisjean.com/ubuntu-ssh-fix-for-agent-admitted-failure-to-sign-using-the-key/)
+[Jekyll]: http://jekyllrb.com
+[stackexchangeSshSkipPubKey]: http://unix.stackexchange.com/questions/247612/ssh-keeps-skipping-my-pubkey-and-asking-for-a-passworde
+[perezdecastroSshLockOut]: https://perezdecastro.org/2015/old-ssh-keys.html
+[ChrisJeanUbuntuFix]: https://chrisjean.com/ubuntu-ssh-fix-for-agent-admitted-failure-to-sign-using-the-key/
