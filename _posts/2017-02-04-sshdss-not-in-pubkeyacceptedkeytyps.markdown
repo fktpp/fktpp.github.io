@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ssh-dss key not in PubkeyAcceptedKeyTypes"
-date:   2017年 02月 04日 星期六 16:54:09 CST
+date:   Sat Feb  4 20:47:12 DST 2017
 categories: ssh dss
 ---
 # ssh-dss key not in PubkeyAcceptedKeyTypes
