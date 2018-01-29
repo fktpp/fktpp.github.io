@@ -8,8 +8,9 @@ categories: note synchronizing cloud adobe pdf
 Recent days I've been reading erlang related PDF, so I have a chance to write some private notes for later review. As it is mobile century now, we never work on single device anymore. I would like to sync all my notes and my reading progress across different devices.
 
 With some time consuming googling work finished I find there's two ready to be used solution that is able to fulfill my personal needs:
-	- Adobe Acrobat Reader DC + Acrobat Reader mobile + Document Cloud
-	- Foxit PDF reader + Foxit connected PDF service
+
+ - Adobe Acrobat Reader DC + Acrobat Reader mobile + Document Cloud
+ - Foxit PDF reader + Foxit connected PDF service
 
 The result surprised me, because I've been using Acrobat Reader DC for about a year now but never notice it is able to sync anything to Adobe managed cloud storage named Document Cloud. In fact I've been wondering for years why Acrobat Reader renamed as Acrobat Reader DC in recent update and what does that 'DC' mean.
 
