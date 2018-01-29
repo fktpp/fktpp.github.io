@@ -11,7 +11,7 @@ With some time consuming googling work finished I find there's two ready to be u
 	- Adobe Acrobat Reader DC + Acrobat Reader mobile + Document Cloud
 	- Foxit PDF reader + Foxit connected PDF service
 
-The result surprised me, because I've been using Acrobat Reader DC for about a year now but never notice it is able to sync anything to Adobe managed cloud storage named Document Cloud. In fact I've been wondering for years why Acrobat Reader renamed as Acrobat Reader DC in recent update and what does that `DC' mean.
+The result surprised me, because I've been using Acrobat Reader DC for about a year now but never notice it is able to sync anything to Adobe managed cloud storage named Document Cloud. In fact I've been wondering for years why Acrobat Reader renamed as Acrobat Reader DC in recent update and what does that 'DC' mean.
 
 Now comes to real life practice with the Document Cloud feature. It is really good acrobat reader for android is able to manage PDF files in Document Cloud just inside the app. Anyway when comes to the Acrobat Reader DC for windows, the long history Acrobat Reader I've been known for years, I can not find any thing Document Cloud related except that there's a hyper link opens an external browser to update my AdobeID details.
 
