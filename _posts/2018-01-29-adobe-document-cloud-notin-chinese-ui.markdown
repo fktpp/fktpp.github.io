@@ -9,8 +9,8 @@ Recent days I've been reading erlang related PDF, so I have a chance to write so
 
 With some time consuming googling work finished I find there's two ready to be used solution that is able to fulfill my personal needs:
 
- - Adobe Acrobat Reader DC + Acrobat Reader mobile + Document Cloud
- - Foxit PDF reader + Foxit connected PDF service
+- Adobe Acrobat Reader DC + Acrobat Reader mobile + Document Cloud
+- Foxit PDF reader + Foxit connected PDF service
 
 The result surprised me, because I've been using Acrobat Reader DC for about a year now but never notice it is able to sync anything to Adobe managed cloud storage named Document Cloud. In fact I've been wondering for years why Acrobat Reader renamed as Acrobat Reader DC in recent update and what does that 'DC' mean.
 
