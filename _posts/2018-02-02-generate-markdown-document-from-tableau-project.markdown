@@ -9,7 +9,7 @@ Just survived from a multiple tableau integrated project, the project was not ve
 
 Recorded every tableau projects' data source connection, table relation and delivered location setting requires someone to open the project both on tableau desktop and tableau server. As tableau TDS file is actually just a XML file, to avoid the boring part, I came out following two simple XML style sheet for document generation.
 
-``` xsl
+``` xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 
     <xsl:output method="text"/>
@@ -24,13 +24,13 @@ Recorded every tableau projects' data source connection, table relation and deli
         <xsl:text> #</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:text>发布之后的工程名： </xsl:text>
+        <xsl:text>鍙戝竷涔嬪悗鐨勫伐绋嬪悕锛� </xsl:text>
         <xsl:text>**</xsl:text>
         <xsl:value-of select="/workbook[1]/repository-location/@id"/>
         <xsl:text>**</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:text>菜单位置：</xsl:text>
+        <xsl:text>鑿滃崟浣嶇疆锛�</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates select="document('tableaumenus.xml')" mode="menus">
@@ -43,18 +43,18 @@ Recorded every tableau projects' data source connection, table relation and deli
     </xsl:template>
 
     <xsl:template mode="datasource" match="datasource">
-        <xsl:text>## 数据源: </xsl:text>
+        <xsl:text>## 鏁版嵁婧�: </xsl:text>
         <xsl:value-of select="attribute::caption"/>
         <xsl:text> ##</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:text>表名：</xsl:text>
+        <xsl:text>琛ㄥ悕锛�</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates mode="table" select="connection/relation"/>
         <xsl:text>&#xa;</xsl:text>
         <xsl:if test="connection/relation[@type='join'][1]">
-            <xsl:text>关联关系：</xsl:text>
+            <xsl:text>鍏宠仈鍏崇郴锛�</xsl:text>
             <xsl:text>&#xa;</xsl:text>
             <xsl:text>&#xa;</xsl:text>
         </xsl:if>
@@ -81,7 +81,7 @@ Recorded every tableau projects' data source connection, table relation and deli
     </xsl:template>
 
     <xsl:template mode="worksheets" match="worksheets">
-        <xsl:text>## 工作簿 ##</xsl:text>
+        <xsl:text>## 宸ヤ綔绨� ##</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates mode="worksheets" select="worksheet"/>
