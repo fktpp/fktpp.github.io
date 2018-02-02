@@ -7,7 +7,7 @@ categories: tableau xml xslt documentation
 
 Just survived from a multiple tableau integrated project, the project was not very well planned. So as a result, I have to prvide some tableau project detail infomation document afterwards.
 
-Recorded every tableau projects' data source connection, table relation and delivered location setting requires someone to open the project both on tableau desktop and tableau server. As tableau TDS file is actually just a XML file, to avoid the boring part, I came out following two simple xml style sheet[^1] for document generation.
+Recorded every tableau projects' data source connection, table relation and delivered location setting requires someone to open the project both on tableau desktop and tableau server. As tableau TDS file is actually just a XML file, to avoid the boring part, I came out following two simple XML style sheet[^1] for document generation.
 
 ``` xsl
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
@@ -24,13 +24,13 @@ Recorded every tableau projects' data source connection, table relation and deli
         <xsl:text> #</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:text>·¢²¼Ö®ºóµÄ¹¤³ÌÃû£º </xsl:text>
+        <xsl:text>å‘å¸ƒä¹‹åçš„å·¥ç¨‹åï¼š </xsl:text>
         <xsl:text>**</xsl:text>
         <xsl:value-of select="/workbook[1]/repository-location/@id"/>
         <xsl:text>**</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:text>²Ëµ¥Î»ÖÃ£º</xsl:text>
+        <xsl:text>èœå•ä½ç½®ï¼š</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates select="document('tableaumenus.xml')" mode="menus">
@@ -43,18 +43,18 @@ Recorded every tableau projects' data source connection, table relation and deli
     </xsl:template>
 
     <xsl:template mode="datasource" match="datasource">
-        <xsl:text>## Êı¾İÔ´: </xsl:text>
+        <xsl:text>## æ•°æ®æº: </xsl:text>
         <xsl:value-of select="attribute::caption"/>
         <xsl:text> ##</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:text>±íÃû£º</xsl:text>
+        <xsl:text>è¡¨åï¼š</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates mode="table" select="connection/relation"/>
         <xsl:text>&#xa;</xsl:text>
         <xsl:if test="connection/relation[@type='join'][1]">
-            <xsl:text>¹ØÁª¹ØÏµ£º</xsl:text>
+            <xsl:text>å…³è”å…³ç³»ï¼š</xsl:text>
             <xsl:text>&#xa;</xsl:text>
             <xsl:text>&#xa;</xsl:text>
         </xsl:if>
@@ -81,7 +81,7 @@ Recorded every tableau projects' data source connection, table relation and deli
     </xsl:template>
 
     <xsl:template mode="worksheets" match="worksheets">
-        <xsl:text>## ¹¤×÷²¾ ##</xsl:text>
+        <xsl:text>## å·¥ä½œç°¿ ##</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates mode="worksheets" select="worksheet"/>
