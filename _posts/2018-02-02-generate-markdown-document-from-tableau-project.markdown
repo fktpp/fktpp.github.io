@@ -7,7 +7,7 @@ categories: tableau xml xslt documentation
 
 Just survived from a multiple tableau integrated project, the project was not very well planned. So as a result, I have to prvide some tableau project detail infomation document afterwards.
 
-Recorded every tableau projects' data source connection, table relation and delivered location setting requires someone to open the project both on tableau desktop and tableau server. As tableau TDS file is actually just a XML file, to avoid the boring part, I came out following two simple XML style sheet[^1] for document generation.
+Recorded every tableau projects' data source connection, table relation and delivered location setting requires someone to open the project both on tableau desktop and tableau server. As tableau TDS file is actually just a XML file, to avoid the boring part, I came out following two simple XML style sheet for document generation.
 
 ``` xsl
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
@@ -154,4 +154,4 @@ The generation is processed during maven build of our web service project, pom s
 
 ```
 
-[^1]: base-uri() call is a xslt 2.0 function, so we have to use xslt processor SAXON for xml processing.
+NOTE: The base-uri() call is a xslt 2.0 function, so we have to use xslt processor SAXON for xml processing.
