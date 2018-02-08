@@ -44,12 +44,12 @@ is able to ESX host directly. It has this feature built-in, and the
 conversion and uploading is really convenient according to OVF tool
 document:
 
-> Deploying an OVF Package Directly on an ESXi Host
-> The following command deploys an OVF package on an ESXi host.
-> > ovftool package.ovf vi://my.esx-machine.example.com/
-> If your host has multiple data stores, use the -ds option:
-> > ovftool package.ovf -ds=storage1 vi://my.esx-machine.example.com/
-> See also ¡°Special Consideration - Running the OVF Tool from ESXi instead of vCenter¡± on page 12.
+    Deploying an OVF Package Directly on an ESXi Host
+    The following command deploys an OVF package on an ESXi host.
+    > ovftool package.ovf vi://my.esx-machine.example.com/
+    If your host has multiple data stores, use the -ds option:
+    > ovftool package.ovf -ds=storage1 vi://my.esx-machine.example.com/
+    See also "Special Consideration - Running the OVF Tool from ESXi instead of vCenter" on page 12.
 	
 My own command looks like following:
 
