@@ -8,8 +8,8 @@ categories: ovftool vmware ESXi vsphere
 When downloaded a sample VM image
 =================================
 
-Today, to kick start my cloudra learning journey, I finally downloaded
-a cloudra getting started image from Cloudra official site. Well this
+Today, to kick start my cloudera learning journey, I finally downloaded
+a cloudera getting started image from cloudera official site. Well this
 image is not so huge, I still don't have much space to store it on my
 local machine.
 
