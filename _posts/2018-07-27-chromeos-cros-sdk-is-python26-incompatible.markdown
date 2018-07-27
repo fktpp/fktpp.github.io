@@ -47,5 +47,5 @@ And you'd better upgrade your distributed python
 ------------------------------------------------
 
 Alas, the cross SDK will do lots of sudo during its execution, simple
-PATH hack for the running user will not go to much further.
+PATH hack for the running user will not go too much further.
 
