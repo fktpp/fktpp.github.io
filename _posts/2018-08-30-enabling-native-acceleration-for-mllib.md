@@ -98,7 +98,7 @@ to be done by next deployment.
 To ease the adoption, I decide to find a openblas parcel for
 cloudera. During the search I discover the press release [Cloudera
 And Intel Speed Up Machine Learning Workloads With Apache Spark,
-Intel0…3 Math Kernel Library Integration](https://www.cloudera.com/more/news-and-blogs/press-releases/2017-02-08-cloudera-and-intel-speed-up-machine-learning-workloads-with-apache-spark-intel-math-kernel-library-integration.html) showing that Intel MKL is a
+Intel Math Kernel Library Integration](https://www.cloudera.com/more/news-and-blogs/press-releases/2017-02-08-cloudera-and-intel-speed-up-machine-learning-workloads-with-apache-spark-intel-math-kernel-library-integration.html) showing that Intel MKL is a
 great option.
 
 Contine with Intel MKL, I find the [great thread](https://community.cloudera.com/t5/Advanced-Analytics-Apache-Spark/Intel-MKL-Spark-on-CDH-5-9/m-p/48962) in cloudera
