@@ -41,8 +41,8 @@ native acceleration for cloudera spark should be as simple as bellow:
 
 1.  Install \`netlib-java\` by integrate GPLExtra parcel as described in
     the [Enable Native Accerleration For MLlib](https://www.cloudera.com/documentation/enterprise/5-11-x/topics/spark_mllib.html#concept_xzv_bj2_lt)
-2.  Install MKL library parcel by follow the [Download Intel® Math
-    Kernel Library (Intel® MKL) for Cloudera](https://www.cloudera.com/downloads/partner/intel.html)
+2.  Install MKL library parcel by follow the [Download Intel Math
+    Kernel Library (Intel MKL) for Cloudera](https://www.cloudera.com/downloads/partner/intel.html)
 3.  Enable MKL library for \`netlib-java\` by perform some dirty hack on
     **every** cluster node:
 
@@ -98,7 +98,7 @@ to be done by next deployment.
 To ease the adoption, I decide to find a openblas parcel for
 cloudera. During the search I discover the press release [Cloudera
 And Intel Speed Up Machine Learning Workloads With Apache Spark,
-Intel® Math Kernel Library Integration](https://www.cloudera.com/more/news-and-blogs/press-releases/2017-02-08-cloudera-and-intel-speed-up-machine-learning-workloads-with-apache-spark-intel-math-kernel-library-integration.html) showing that Intel MKL is a
+Intel聛0鈥�3 Math Kernel Library Integration](https://www.cloudera.com/more/news-and-blogs/press-releases/2017-02-08-cloudera-and-intel-speed-up-machine-learning-workloads-with-apache-spark-intel-math-kernel-library-integration.html) showing that Intel MKL is a
 great option.
 
 Contine with Intel MKL, I find the [great thread](https://community.cloudera.com/t5/Advanced-Analytics-Apache-Spark/Intel-MKL-Spark-on-CDH-5-9/m-p/48962) in cloudera
