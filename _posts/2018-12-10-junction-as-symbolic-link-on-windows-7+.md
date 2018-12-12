@@ -64,6 +64,30 @@ If you are using Win7, as I do. Just download and install the
 awesome [Link Shell Extension](http://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html) and follow the instructions in [The
 Complete Guide to Creating Symbolic Links (aka Symlinks) on Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
 
+Or maybe using the \`mklink\` ****builtin**** (cmd.exe)
+
+    $ mklink
+    Creates a symbolic link.
+    
+    MKLINK [[/D] | [/H] | [/J]] Link Target
+    
+    	/D      Creates a directory symbolic link.  Default is a file
+    		symbolic link.
+    	/H      Creates a hard link instead of a symbolic link.
+    	/J      Creates a Directory Junction.
+    	Link    specifies the new symbolic link name.
+    	Target  specifies the path (relative or absolute) that the new link
+    
+    $ mkdir vimfiles
+    
+    $ mklink /j .vim vimfiles
+    Junction created for .vim <<===>> vimfiles
+    
+    $ dir | findstr /i vim
+    12/12/2018  10:07 AM    <JUNCTION>     .vim [C:\Users\fktpp\vimfiles]
+    04/19/2016  01:05 PM             1,636 .viminfo
+    12/12/2018  10:07 AM    <DIR>          vimfiles
+
 Lesson learn by failure attempts:
 
 1.  Windows shortcut is not symbolic link. It acts as a normal file
