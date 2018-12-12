@@ -94,7 +94,4 @@ Lesson learn by failure attempts:
     if you try to access the shortcut inside git bash.
 2.  \`ln -s\` command in git bash will not create symbolic link on
     windows, it merely create a copy of directory tree -\_-
-3.  There's no official command to create a Junction (think about it
-    as analog of symbolic link to directory in Unix) on top of NTFS
-    until you upgraded to windows 10.
 
