@@ -16,12 +16,9 @@
 title: FKtPp Journal
 email: mpupilnetATaol.com
 description: > # this means to ignore newlines until "baseurl:"
-  In the early 2017 FKtPp start to realize that too many knowledge learned
-  from books techsites, blogs, working were dispearing from his not so powerful
-  brain. So he (actually I who is typing the word) decide to write something
-  down for a record and for some not being able to tell reason.
-
-  Okay, get start.
+  In the early 2017 FKtPp realize that too many things has disappeared
+  from his memory. It would be great if write down things down in blog
+  can help.
   
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://fktpp.github.io" # the base hostname & protocol for your site
