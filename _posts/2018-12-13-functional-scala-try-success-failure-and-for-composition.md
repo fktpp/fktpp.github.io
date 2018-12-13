@@ -59,3 +59,10 @@ unpacking. Refer to the following code example (inspired by
     
     val getTs = udf(time_to_ts)
 
+
+# Why not use builtin functions?
+
+Since the spark builtin datatime, timestamp family of functions when
+used to convert string to internal timestamp. Will lose the
+****miliseconds**** field, which is critical to our use case.
+
