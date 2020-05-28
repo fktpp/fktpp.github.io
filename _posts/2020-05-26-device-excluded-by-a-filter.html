@@ -1,0 +1,36 @@
+
+<div id="outline-container-orgd9d80fe" class="outline-2">
+<h2 id="orgd9d80fe">Device /dev/sdc excluded by a filter</h2>
+<div class="outline-text-2" id="text-orgd9d80fe">
+<p>
+The title is one of the serval issues I met when preparing new
+harddrives for my Linux Host.
+</p>
+
+<p>
+By looking at `/etc/lvm.conf` I am 100% sure that there's no filter
+setup.
+</p>
+
+<p>
+It turns out to be the Filesystem magic bits lefted on my used
+harddrives which prevent the pvcreate command to run. Those magic bits
+wont be erased by `parted` tool. One must explicitly invoke `wipefs`
+command against the drive for magic bits cleanup.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">wipefs -a /dev/sdc
+</pre>
+</div>
+
+<p>
+Once did this, the `pvcreate` is happy processing the hard disk for
+physical volume creation.
+</p>
+
+<p>
+new
+</p>
+</div>
+</div>
