@@ -1,0 +1,113 @@
+---
+date: 2020-05-28 15:46
+author: Kai Fan
+layout: post
+title: org2jeklly is changing...
+excerpt: Some change breaks my current workflow, and the workaround
+tags: 
+- org2jeklly
+- mode
+categories: 
+- blog
+---
+
+<div id="outline-container-org4e2cdf0" class="outline-2">
+<h2 id="org4e2cdf0">publish failure in org2jeklly 0.25</h2>
+<div class="outline-text-2" id="text-org4e2cdf0">
+<p>
+Some time ago I started using org2jeklly to publish my blogs. All went
+well until someday I did a package upgrade for all my emacs packages&#x2026;
+</p>
+
+<p>
+My publish start to fail, there's no markdown file produced after I
+run `M-x org2jeklly-publish`&#x2026;
+</p>
+
+<p>
+There's `org-export-process exited abnorml` message in <b>Message</b> buffer.
+</p>
+</div>
+
+<div id="outline-container-org57389da" class="outline-3">
+<h3 id="org57389da">org-export-process exited abnormally issue</h3>
+<div class="outline-text-3" id="text-org57389da">
+<p>
+Several hours of debug shows that the "org-export-process" related
+issue was casued by there's no correct org asynchronous export setting.
+</p>
+
+<p>
+To fix it add following snippet to .emacs:
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(custom-set-variables
+ '(org-export-async-init-file <span style="color: #008000;">"~/.emacs.d/org-async-init.el"</span>))
+</pre>
+</div>
+
+<p>
+And create a "~/.emacs.d/org-async-init.el" with following contents:
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">package</span>)
+(<span style="color: #0000FF;">setq</span> package-enable-at-startup nil)
+(package-initialize)
+
+(<span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">org</span>) 
+(<span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">ox</span>)
+(<span style="color: #0000FF;">setq</span> org-export-async-debug t)
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge1d35f2" class="outline-3">
+<h3 id="orge1d35f2">no markdown generated in post directory</h3>
+<div class="outline-text-3" id="text-orge1d35f2">
+<p>
+It turns out to be the issue of my own configuration file. I
+accidentally removed my org2jeklly package. Which cause all
+org2jeklly related configurations be removed from .emacs.  
+</p>
+
+<p>
+While this is a intentional behavior of package system. I also find
+my "removed" org2jeklly package was actually not removed, it
+remains in the local elpa package tree.
+</p>
+
+<p>
+After some cleanup and reinstallation, reconfiguration work the
+markdown file is able to be generated as usual.
+</p>
+
+<p>
+Then there comes a new issue: no meta data generated for jeklly in
+the post header!!!
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga35d880" class="outline-3">
+<h3 id="orga35d880">no meta data header</h3>
+<div class="outline-text-3" id="text-orga35d880">
+<p>
+The issue was casued some recently introduced breaking change in
+org2jeklly. 
+</p>
+
+<p>
+The new org2jeklly is not compatible with with
+`org-md-publish-to-md` anymore.
+</p>
+
+<p>
+To workaround, I have to replace the `org-md-publish-to-md`
+function with `org-html-publish-to-html`.
+</p>
+</div>
+</div>
+</div>
