@@ -1,0 +1,34 @@
+---
+date: 2020-06-02 10:26
+author: Kai Fan
+layout: post
+title: libgusetfs tools and virt-sparsify
+excerpt: Don't forget the virt-sparsify tool again 
+tags: 
+- qcow2
+- libguestfs
+- libvirt
+categories: 
+- vm
+- sa
+---
+
+<div id="outline-container-org6bc228c" class="outline-2">
+<h2 id="org6bc228c">libguestfs tools and virt-sparsify</h2>
+<div class="outline-text-2" id="text-org6bc228c">
+<p>
+I missed the tool so much that I've been <b>re</b>-google for key word
+"qcow2 compress", "qcow2 space claim", "libguestfs compress" and
+etc. for a whole day!!!
+</p>
+
+<p>
+Here's the manpage: <a href="http://libguestfs.org/virt-sparsify.1.html">http://libguestfs.org/virt-sparsify.1.html</a>
+</p>
+
+<p>
+It is much better than the pure <code>qemu-img convert -c -f a.qcow2 -O
+qcow2 compressed_a.qcow2</code> command.
+</p>
+</div>
+</div>
