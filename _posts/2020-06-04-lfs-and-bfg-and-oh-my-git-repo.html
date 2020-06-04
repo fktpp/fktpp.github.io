@@ -1,0 +1,118 @@
+---
+date: 2020-06-04 23:43
+author: Kai Fan
+layout: post
+title: lfs and bfg and oh my git repo
+excerpt: What is git-lfs and how to convert existing repo to use it
+tags: 
+- git
+- lfs
+- bfg
+- repo
+- dev
+categories: 
+- git
+- dev
+---
+
+<div id="outline-container-org177fb38" class="outline-2">
+<h2 id="org177fb38">What is git-lfs</h2>
+<div class="outline-text-2" id="text-org177fb38">
+<p>
+Accroding to its name, git-lfs is git-large-file-storage. Is a git
+plugin which replace large file to their corresponding text pointers
+in git repo.
+</p>
+
+<p>
+This way it accelerate git fetch process by only download needed large
+file objects.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgba79cd7" class="outline-2">
+<h2 id="orgba79cd7">Why git-lfs?</h2>
+<div class="outline-text-2" id="text-orgba79cd7">
+<p>
+Git serivce provider such as github and bitbucket are both activated
+the git-lfs on their service.
+</p>
+
+<p>
+Actually github also setup a hook that will reject commits with large
+binary files.
+</p>
+
+<p>
+If you have an legacy git repository and want to host it on github,
+you must make sure there's no large binary files ever checked into
+your repo in the past.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org52e5f4a" class="outline-2">
+<h2 id="org52e5f4a">What if you got a poisoned repo full of large binary files?</h2>
+<div class="outline-text-2" id="text-org52e5f4a">
+<p>
+There're no much options to choose from when you are in this situaton.
+</p>
+
+<ol class="org-ol">
+<li>Convert or migrate to git-lfs repo.</li>
+<li>Drop the history, as huge git-lfs do cost money. Both github and
+bitbucket set 1GB limit on their free git-lfs storage capacity.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgbda808f" class="outline-3">
+<h3 id="orgbda808f">Enable git-lfs in new repo and Convert existing repo to git-lfs repo with git</h3>
+<div class="outline-text-3" id="text-orgbda808f">
+<p>
+There's an offical solution to this task, on <a href="https://git-lfs.github.com/">git-lfs homepage</a>. The
+procedure to enable git-lfs is very simple, in nutshell contains
+following steps:
+</p>
+
+<pre class="example">
+cd &lt;REPO&gt;
+git lfs install
+git lfs track "*.psd"
+</pre>
+
+<p>
+migration is alo provided in its <a href="https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-migrate.1.ronn?utm_source=gitlfs_site&amp;utm_medium=doc_man_migrate_link&amp;utm_campaign=gitlfs">dedicated page</a>, as shown bellow:
+</p>
+<pre class="example">
+git lfs migrate info
+git lfs migrate import --include="*.mp3,*.psd"
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org4a372fc" class="outline-3">
+<h3 id="org4a372fc">Convert existing repo to git-lfs repo with bfg</h3>
+<div class="outline-text-3" id="text-org4a372fc">
+<p>
+The full name of the utility is bfg-repo-cleaner. As the name
+stated it can do all kinds of git repo cleanup tasks. One of its
+feature is to convert the git history to git-lfs.
+</p>
+
+<p>
+The tool runs very fast, and will present a nice looking ascii
+report for the operation.
+</p>
+
+<p>
+The procedure consists of only one command as:
+</p>
+
+<pre class="example">
+java -jar &lt;path to&gt;bfg-x.x.x.jar --convert-to-git-lfs "*.{png,mp4}" --no-blob-protection &lt;repo-name&gt;.git
+</pre>
+</div>
+</div>
+</div>
