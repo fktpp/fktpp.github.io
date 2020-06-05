@@ -1,0 +1,76 @@
+---
+date: 2020-06-06 00:21
+author: Kai Fan
+layout: post
+title: chcon can not apply partial context to unlabeld file
+excerpt: fix broken selinux label
+tags: 
+- selinux
+- file
+- label
+- chcon
+categories: 
+- admin
+- selinux
+- linux
+---
+
+<div id="outline-container-org775cceb" class="outline-2">
+<h2 id="org775cceb">The broken selinux label and way to fix</h2>
+<div class="outline-text-2" id="text-org775cceb">
+<p>
+Yesterday I work on a task of compress a qcow2 vm image. As usual I
+made a temp directory in the directory of the image, and fired the
+<code>qemu-img convert</code> and then <code>virt-sparsify</code> command to do the
+compression.
+</p>
+
+<p>
+Soon, after some seconds, an unusual error occurred. My task
+received a mysterious signal 9 and exited.
+</p>
+
+<p>
+As I am the only user of the machine at the time. A blind guess and
+some <code>ls -lhz</code> commands lead me to the broken selinux label problem.
+</p>
+
+<p>
+It turns out that directory up to the second level of the directory
+are all unlabeled.
+</p>
+
+<p>
+My first attempt with <code>chcon -R -t virt_image_t &lt;workdir&gt;</code> <b>failed</b> with
+some error messages looks like bellow:
+</p>
+
+<pre class="example">
+chcon: can't apply partial context to unlabeled file ¡®VERSION.png¡¯
+chcon: can't apply partial context to unlabeled file ¡®1.1_V12¡¯
+chcon: can't apply partial context to unlabeled file ¡®pre-release¡¯
+chcon: can't apply partial context to unlabeled file ¡®hotfix_20200106_rollback¡¯
+chcon: can't apply partial context to unlabeled file ¡®statusmachine.properties¡¯
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org30bc7b8" class="outline-2">
+<h2 id="org30bc7b8">solution from stackoverflow</h2>
+<div class="outline-text-2" id="text-org30bc7b8">
+<p>
+To initialize selinux label on unlabeled files:
+</p>
+
+<ol class="org-ol">
+<li>run <code>chcon -R -h &lt;initial_selinux_label&gt; &lt;workdir&gt;</code></li>
+<li>optionally run <code>chcon -R -t &lt;single_selinux_label&gt; &lt;workdir&gt;</code> if desired label not in &lt;initial<sub>selinux</sub><sub>label</sub>&gt;</li>
+</ol>
+
+<pre class="example">
+chcon -R -h system_u:object_r:home_root_t:s0 images/
+chcon -R -t virt_image_t images/
+</pre>
+</div>
+</div>

@@ -1,0 +1,103 @@
+---
+date: 2020-06-05 23:11
+author: Kai Fan
+layout: post
+title: learning some sbt fu by build the bfg tool
+excerpt: sbt 1 2 3
+tags: 
+- sbt
+- scala
+- maven
+categories: 
+- dev
+- scala
+- sbt
+---
+
+<div id="outline-container-org3ac77a7" class="outline-2">
+<h2 id="org3ac77a7">I want to build the bfg tool</h2>
+<div class="outline-text-2" id="text-org3ac77a7">
+<p>
+In my previous blog I talked about bfg the <a href="https://rtyley.github.io/bfg-repo-cleaner/">bfg-repo-cleaner</a>. It is a
+fast repo maintaince tool writen in scala. The developer didn't
+provide any prebuilt binary downloads.
+</p>
+
+<p>
+So, clone and built by myself.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga4e4903" class="outline-2">
+<h2 id="orga4e4903">SBT do not work well the maven way</h2>
+<div class="outline-text-2" id="text-orga4e4903">
+<p>
+After some simple git clone. Backed with some maven knowledge and
+knowning that sbt is kind of same tool.
+</p>
+
+<p>
+I thought like a fool that a <code>sdk install sbt</code> followed by <code>sbt build</code>
+command will built a beautiful jar in target directory as <code>maven
+package</code> do.
+</p>
+</div>
+
+<div id="outline-container-orgd7991c9" class="outline-3">
+<h3 id="orgd7991c9">Sbt version mismatch</h3>
+<div class="outline-text-3" id="text-orgd7991c9">
+<p>
+Quickly I leart the first lesson from sbt: sbt will not build the
+old project with latest sbt version, it will always try to build
+the project with declared version. If the version is not avaiable
+locally, SBT will try to download it until successed with the
+downloading.
+</p>
+
+<ol class="org-ol">
+<li>sbt will download with project declared sbt version if not
+already installed.</li>
+<li>sbt will download the project declared scala version if not
+already installed.</li>
+<li>sbt is big! and the download is realy slow.</li>
+<li>scala is big, too, alas!!!</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0f318c0" class="outline-3">
+<h3 id="org0f318c0">Sbt likes REPL</h3>
+<div class="outline-text-3" id="text-org0f318c0">
+<p>
+After serval bindly <code>sbt foobar</code> runs without looking in to the
+README a sigle sight. I learnt my second lesson from bfg project:
+project README and BUILD document is important!!!
+</p>
+
+<p>
+Just as maven works the mode java runs, fire and wait for the
+result. sbt works the way scala runs, start a REPL and interact
+with it.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org80df7e1" class="outline-2">
+<h2 id="org80df7e1">The power of scala runtime</h2>
+<div class="outline-text-2" id="text-org80df7e1">
+<p>
+The third lesson I leart from sbt is that: a pure sbt built jar will
+depends on scala runtime, to make a uber jar one must use sbt
+assembly plugin.
+</p>
+
+<p>
+With assembly plugin applied, the KB sized pure jar will quickly
+grow to 1x MB sized fat jar with power of scala runtime
+embedded. There after a seperated installtion of scala is not
+necessary anymore.
+</p>
+</div>
+</div>
