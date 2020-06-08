@@ -1,0 +1,92 @@
+---
+date: 2020-06-08 09:15
+author: Kai Fan
+layout: post
+title: emulate htop with top
+excerpt: simple top view emulates htop layout
+tags: 
+- top
+- htop
+categories: 
+- sa
+- linux
+---
+
+<div id="outline-container-orgc527362" class="outline-2">
+<h2 id="orgc527362">The top program from procps-ng (debian, centos/el7 later)</h2>
+<div class="outline-text-2" id="text-orgc527362">
+<p>
+Ever being with htop for sometime and miss the process tree and
+graphical cpu/memory usage?
+</p>
+
+<p>
+The top program from procps-ng (debian, centos/el7 later) can easily
+emulate the presention of htop view.
+</p>
+
+<p>
+start the top program, it looks like following with its default configuration:
+</p>
+
+<pre class="example">
+top - 09:20:54 up 307 days, 22:58,  4 users,  load average: 0.80, 0.74, 0.75
+Tasks: 486 total,   1 running, 485 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.6 us,  0.6 sy,  0.0 ni, 98.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem : 65796532 total,   808264 free, 22970744 used, 42017524 buff/cache
+KiB Swap: 16777212 total, 15433868 free,  1343344 used. 39944388 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+30561 clouder+  20   0   16.0g   2.3g  23296 S  11.6  3.6  11037:25 java
+  703 yarn      20   0 2586468 429556  20704 S   1.0  0.7 258:14.48 java
+   10 root      20   0       0      0      0 S   0.7  0.0   3613:19 rcu_sched
+ 2736 ericsson  20   0  162316   2684   1588 R   0.7  0.0   0:00.12 top
+ 2979 hdfs      20   0 6243524   1.9g  21560 S   0.7  3.0 576:11.19 java
+ 7197 root      20   0       0      0      0 S   0.7  0.0   0:34.26 kworker/8:2
+</pre>
+
+<p>
+Press <code>ttmmcVz</code> in the top screen, then the top view will be turn to like this:
+</p>
+
+<pre class="example">
+top - 09:25:20 up 307 days, 23:03,  4 users,  load average: 0.61, 0.60, 0.68
+Tasks: 485 total,   2 running, 483 sleeping,   0 stopped,   0 zombie
+%Cpu(s):   0.9/0.6     1[                                                                                               ] 
+KiB Mem : 39.3/65796532 [                                                                                               ]
+KiB Swap:  8.0/16777212 [                                                                                               ]
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0  199708   3652   1836 S   0.0  0.0  91:41.00 /usr/lib/systemd/systemd --system --deserialize 23
+  699 root      20   0   53892  21140  20540 S   0.0  0.0  20:04.10  `- /usr/lib/systemd/systemd-journald
+ 1052 root      39  19   16808     20      0 S   0.0  0.0   0:10.43  `- /usr/sbin/alsactl -s -n 19 -c -E ALSA_CONFIG_PAT+  1056 libstor+  20   0    8524     32      0 S   0.0  0.0   1:57.23  `- /usr/bin/lsmd -d
+ 1058 root      20   0  419456   1288    704 S   0.0  0.0   7:34.04  `- /usr/sbin/ModemManager
+ 1063 root      20   0   25212   2328   1000 S   0.0  0.0  39:10.69  `- /usr/lib/systemd/systemd-logind
+</pre>
+
+<p>
+And if you really like the per CPU details, presss <code>1</code> in in the top screen.
+</p>
+</div>
+
+
+<div id="outline-container-org1107785" class="outline-3">
+<h3 id="org1107785">Top KeyPress Command explained</h3>
+<div class="outline-text-3" id="text-org1107785">
+<p>
+Press <code>?</code> in the top screen, to get full list of supported KeyPress command.
+</p>
+
+<dl class="org-dl">
+<dt>t</dt><dd>toggles task/cpu stats, which cycles from 3 avaiable CPU
+stats presention styles.</dd>
+<dt>m</dt><dd>toggles memory info, which also cycles from 3 avaiable
+Memory info presention styles.</dd>
+<dt>c</dt><dd>toggles between Cmd name or Cmd line presention styles.</dd>
+<dt>V</dt><dd>toggles between normal process list or Forest view (process
+tree with parent/children relationship).</dd>
+<dt>z</dt><dd>toggles between color and mono display.</dd>
+</dl>
+</div>
+</div>
+</div>
