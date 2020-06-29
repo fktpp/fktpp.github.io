@@ -1,0 +1,42 @@
+---
+date: 2020-06-30 00:01
+author: Kai Fan
+layout: post
+title: Learning terraform with OCI provider and Oracle always free tier
+excerpt: What I learnt from practice terraform on Oracle cloud
+tags: 
+- terraform
+- iaac
+- oci
+categories: 
+- cicd
+- devops
+- admin
+- dev
+---
+
+<div id="outline-container-org9618d00" class="outline-2">
+<h2 id="org9618d00">Provider: OCI</h2>
+<div class="outline-text-2" id="text-org9618d00">
+<p>
+<a href="https://www.terraform.io/docs/providers/oci/index.html">https://www.terraform.io/docs/providers/oci/index.html</a>
+</p>
+
+<ol class="org-ol">
+<li>Initial terraform plugins.</li>
+<li>Setup connection credentials as input variables, such various
+ocids, public keys etc.</li>
+<li>The way of using .tfvars file is deprecated.</li>
+<li>The way of configuring via SDK/CLI configuration file
+<code>~/.oci/config</code> does not work.</li>
+<li>Shell variables works as expected.</li>
+<li>Exist oci resource, such as vcn, must be removed before always
+free configuration can be applied.</li>
+<li>OCI stacks is actually implemented with terraform. There's
+terraform specific functions in stack's detail panel. Such as
+terraform configuration download (as a zip), plan, apply,
+destroy.</li>
+<li>Longway to go as OCI api is rich and complex.</li>
+</ol>
+</div>
+</div>
