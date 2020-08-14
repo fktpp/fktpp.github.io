@@ -1,0 +1,45 @@
+---
+date: 2020-08-14 10:58
+author: Kai Fan
+layout: post
+title: Remove symbolic link in windows
+excerpt: Use rmdir instead of del to delete the symblic link (itself) in windows to prevent data loss
+tags: 
+- link
+- windows
+- rmdir
+- delete
+categories: 
+- admin
+---
+
+<div id="outline-container-orge177aed" class="outline-2">
+<h2 id="orge177aed">Use rmdir if you want to remove just the directory symbolic link (by itself.)</h2>
+<div class="outline-text-2" id="text-orge177aed">
+<p>
+When you begin to live with (make use of) symblic links in
+windows. You may have to remove some symbolic links for
+maintainence. 
+</p>
+
+<p>
+It feels all okay until symbolic links whose target are directories,
+those ones created by <b>/d</b> parameters by `mklink` tool, comes into
+play. 
+</p>
+
+
+<p>
+<b>Don't</b> use the del command, as it will recursivly delete all the files
+under the target directory.
+</p>
+
+<p>
+<b>Use</b> rmdir to delete just the symbolic link itself.
+</p>
+
+<p>
+Reference: <a href="https://superuser.com/questions/167076/how-can-i-delete-a-symbolic-link">https://superuser.com/questions/167076/how-can-i-delete-a-symbolic-link</a>
+</p>
+</div>
+</div>
