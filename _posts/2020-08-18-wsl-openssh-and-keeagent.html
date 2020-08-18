@@ -1,0 +1,51 @@
+---
+date: 2020-08-18 16:20
+author: Kai Fan
+layout: post
+title: wsl openssh and keeagent
+excerpt: Use keeagent as ssh-agent for openssh clients inside WSL
+tags: 
+- ssh
+- agent
+- keepass
+categories: 
+- admin
+- env
+---
+
+<div id="outline-container-org85559a9" class="outline-2">
+<h2 id="org85559a9">A great python to save keepass WSL user in windows</h2>
+<div class="outline-text-2" id="text-org85559a9">
+<p>
+If you are a keepass user, chances are that you are also a keeagent
+user, chances are that you are also a WSL user.
+</p>
+
+<p>
+You want all your passwords and ssh keys managed by <b>keepass</b>, and
+automatically served by the its great <b>keeagent</b> plugin.
+</p>
+
+<p>
+As with putty, mobaxterm, git bash, win10 bundled openssh all works
+well with trivial additional setup. You will expect the <b>real</b> openssh
+inside your WSL environment to work as well.
+</p>
+</div>
+
+<div id="outline-container-org4d7b0d1" class="outline-3">
+<h3 id="org4d7b0d1"><a href="https://gist.github.com/kevinvalk/3ccd5b360fd568862b4a397a9df9ed26">msysgit2unix-socket.py</a></h3>
+<div class="outline-text-3" id="text-org4d7b0d1">
+<p>
+Get the tool and setup it in your WSL, and then you get it. Try
+<code>ssh-add -l</code> or ssh to any of your usual ssh target after restart
+your WSL terminal.
+</p>
+
+
+<p>
+<a href="https://gist.github.com/kevinvalk/3ccd5b360fd568862b4a397a9df9ed26">https://gist.github.com/kevinvalk/3ccd5b360fd568862b4a397a9df9ed26</a>
+</p>
+</div>
+</div>
+</div>
