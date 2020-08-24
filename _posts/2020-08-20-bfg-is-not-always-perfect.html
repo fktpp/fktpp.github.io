@@ -1,0 +1,103 @@
+---
+date: 2020-08-20 23:52
+author: Kai
+layout: post
+title: bfg is not always perfect
+excerpt: bfg converted repo have issue with git lfs, alas
+tags: 
+- git
+- lfs
+- bfg
+categories: 
+- admin
+---
+
+<div id="outline-container-orga1bc350" class="outline-2">
+<h2 id="orga1bc350">When something broken in your git lfs workflow</h2>
+<div class="outline-text-2" id="text-orga1bc350">
+<p>
+It is really bad when this happend in your packaging procedure. Image
+that, everyting should have been a binary archive being end in a text
+point file in your installation media.. nightmare..
+</p>
+
+<p>
+So how could it happend?
+</p>
+</div>
+
+<div id="outline-container-orgaf203d3" class="outline-3">
+<h3 id="orgaf203d3">All begins with a repo optimization..</h3>
+<div class="outline-text-3" id="text-orgaf203d3">
+<p>
+You have a repo full of binary files, and you want it to be clean
+and neat.
+</p>
+
+<p>
+You know that <b>bfg</b> will help you on the job. and did the
+convertion with some magic file pattern like <code>*.{jpg,png,zip,gz,tar}</code>
+</p>
+
+<p>
+The you replaced the repo, without any sanity test.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4fb8944" class="outline-3">
+<h3 id="org4fb8944">Git lfs pointer files begins to show up in your source tree</h3>
+<div class="outline-text-3" id="text-org4fb8944">
+<p>
+You got this after every git operation, as the git hooks did not
+work as expected.
+</p>
+
+<p>
+They don’t understand <b>bfg</b> generated filter rules in your
+<code>.gitattribute</code> file.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgece9ebe" class="outline-3">
+<h3 id="orgece9ebe">Git lfs files shows as modfied after git lfs pull</h3>
+<div class="outline-text-3" id="text-orgece9ebe">
+<p>
+You know that <code>git lfs pull</code> can help you with <b>pointer file</b> =&gt;
+<b>binary</b> convertion.
+</p>
+
+<p>
+But it do not help much, as everything converted shows up as
+modfied in <code>git status</code>, as the git hooks did not work as expected.
+</p>
+
+<p>
+They don’t understand <b>bfg</b> generated filter rules in your
+<code>.gitattribute</code> file.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga7c59df" class="outline-2">
+<h2 id="orga7c59df">Way to rescure</h2>
+<div class="outline-text-2" id="text-orga7c59df">
+<p>
+Run bfg with one type of file a time, until all kind of binary files
+are covered. e.g. 
+</p>
+
+<p>
+For pattern <code>*.{jpg,png,zip,gz,tar}</code> previous mentioned. Run bfg
+five times, for each time with only one filetype (suffix).
+</p>
+
+
+<p>
+Refer: <a href="https://support.atlassian.com/bitbucket-cloud/docs/use-bfg-to-migrate-a-repo-to-git-lfs/">https://support.atlassian.com/bitbucket-cloud/docs/use-bfg-to-migrate-a-repo-to-git-lfs/</a>
+Refer: <a href="https://github.com/rtyley/bfg-repo-cleaner/issues/116">https://github.com/rtyley/bfg-repo-cleaner/issues/116</a>
+</p>
+</div>
+</div>
