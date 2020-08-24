@@ -1,0 +1,67 @@
+---
+date: 2020-08-24 14:47
+author: Kai Fan
+layout: post
+title: Eglot mode with MS pylance language server
+excerpt: Use microsoft ms-python pylance language server with Eglot mode
+tags: 
+- python
+- language
+- server
+- eglot
+- ms
+- pylance
+categories: 
+- dev
+---
+
+<div id="outline-container-org7d71bce" class="outline-2">
+<h2 id="org7d71bce">Step by Step howto follows</h2>
+<div class="outline-text-2" id="text-org7d71bce">
+<ol class="org-ol">
+<li>Install Pylance by any means. I did it by install via vscode
+plugin manager. (You know language server is the VSCode thing).</li>
+
+<li>Install nodejs by any means. I did it by doing a <code>choco install nodejs</code>.</li>
+
+<li>In emacs <code>M-x package-list-packages</code> search for <code>eglot-mode</code> mark
+it to be installed with key <b>i</b>, then hit key <b>x</b> to install.</li>
+
+<li><p>
+Configure Emacs to initialize package-system and elgot by adding
+following elisp snippets to <code>init.el</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">package</span>)
+
+(package-initialize)
+
+(<span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">eglot</span>)
+
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">VSCode install extentions in ~/.vscode or %UserProfile%\.vscode directory. e.g.</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">C:\\Users\\ekaifan\\.vscode\\extensions\\ms-python.vscode-pylance-2020.8.2\\server\\server.bundle.js</span>
+(add-to-list 'eglot-server-programs '(python-mode . (<span style="color: #008000;">"node"</span> <span style="color: #008000;">"PATH_TO_YOUR_PYLANCE_SERVER_DOT_BUNDLE_DOT_JS"</span> <span style="color: #008000;">"--stdio"</span>)))
+(add-hook 'python-mode-hook 'eglot-ensure)
+
+</pre>
+</div></li>
+
+<li>Customize your eglot behavior by <code>M-x customize-group &lt;RET&gt; eglot &lt;RET&gt;</code>.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org5ad8790" class="outline-2">
+<h2 id="org5ad8790">Make sure your eglot program started with correct utilites</h2>
+<div class="outline-text-2" id="text-org5ad8790">
+<p>
+For python language server, you may have to ensure your python
+environment is right if you have multiple ones avaiable.
+</p>
+
+<p>
+I did it by via <code>conda-mode</code>, as I am using miniconda, and I have
+multiple conda environment for different purpose (projects).
+</p>
+</div>
+</div>
