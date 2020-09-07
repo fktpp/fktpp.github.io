@@ -1,0 +1,40 @@
+---
+date: 2020-09-07 12:14
+author: Kai Fan
+layout: post
+title: find pylance directory
+excerpt: a Elisp snip to find the pylance installation
+tags: 
+- dev
+- elisp
+- emacs
+categories: 
+- dev
+---
+
+<div id="outline-container-org92f8c35" class="outline-2">
+<h2 id="org92f8c35">So your pylance upgrade very often?</h2>
+<div class="outline-text-2" id="text-org92f8c35">
+<p>
+init snap here to rescue.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #0000FF;">defun</span> <span style="color: #006699;">find-pylance</span> ()
+  (<span style="color: #0000FF;">let*</span> ((vscode-extensions-directory (expand-file-name
+                                       <span style="color: #008000;">".vscode/extensions"</span>
+                                       (getenv <span style="color: #008000;">"UserProfile"</span>)))
+         (pylance-directory (car
+                             (seq-filter
+                              (<span style="color: #0000FF;">lambda</span> (elt) (string-match-p <span style="color: #008000;">".*pylance.*"</span> elt))
+                              (directory-files vscode-extensions-directory)))))
+    (concat (file-name-as-directory vscode-extensions-directory)
+            (file-name-as-directory pylance-directory)
+            <span style="color: #008000;">"dist/server.bundle.js"</span>)))
+(add-to-list 'eglot-server-programs `(python-mode . (<span style="color: #008000;">"node"</span> ,(find-pylance) <span style="color: #008000;">"--stdio"</span>)))
+(add-hook 'python-mode-hook 'eglot-ensure)
+
+</pre>
+</div>
+</div>
+</div>
