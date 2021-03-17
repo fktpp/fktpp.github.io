@@ -1,0 +1,55 @@
+---
+date: 2021-03-17 14:59
+author: Kai Fan
+layout: post
+title: Working with case insensitive Json in python
+excerpt: convert json keys to lower case and work lower case
+tags: 
+- python
+- json
+- object_pairs_hook
+- lower
+- case
+categories: 
+- programming
+- python
+---
+
+<div id="outline-container-org88c74a0" class="outline-2">
+<h2 id="org88c74a0">We want the json keys to be case-insensitive</h2>
+<div class="outline-text-2" id="text-org88c74a0">
+<p>
+Okay, I hope this is not your case, as it is too weird to work this way.
+</p>
+
+<p>
+But If you have to. Or, If you must to. 
+</p>
+
+<p>
+Solution is to: Just working in a specific case, upper or lower, and
+blindly convert all data to that case.
+</p>
+
+<p>
+To do this in Python, when you load a json file/string you can define a hook
+named <code>object_pairs_hook</code> as bellow:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000FF;">import</span> pathlib
+
+<span style="color: #BA36A5;">my_file</span> = pathlib.Path.cwd().join(<span style="color: #008000;">'my_example.json'</span>)
+
+<span style="color: #0000FF;">def</span> <span style="color: #006699;">lower_case_keys</span>(tuple_list):
+    <span style="color: #0000FF;">return</span> <span style="color: #006FE0;">dict</span>([(k.lower(), v) <span style="color: #0000FF;">for</span> k, v <span style="color: #0000FF;">in</span> tuple_list])
+
+json.loads(my_file.read_text(encoding=<span style="color: #008000;">'UTF-8'</span>), object_pairs_hook=lower_case_keys)
+</pre>
+</div>
+
+<p>
+From here on, all your json operation should be using lower-cased keys.
+</p>
+</div>
+</div>
